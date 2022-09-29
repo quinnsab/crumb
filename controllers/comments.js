@@ -4,8 +4,7 @@ const Comment = require("../models/Comment")
 module.exports = {
   createComment: async (req, res) => {
     try {
-      //Todo - add new properties to each document 
-   
+         
       await Comment.create({
         comment: req.body.comment,
         likes: 0,
@@ -19,6 +18,8 @@ module.exports = {
       console.log(err);
     }
   },
+
+
   deleteComments: async (req, res) => {
     try {
       await Comment.deleteOne({_id: req.params.commentid})

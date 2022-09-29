@@ -9,14 +9,34 @@ const PostSchema = new mongoose.Schema({
     type: String,
     require: true,
   },
+  // !new
+  bread: {
+    type: String,
+    require: true,
+  },
+  // !new
+  ingredients: {
+    type: [String],
+    require: true,
+  },
+  // !new
+  directions: {
+    type: [String],
+    require: true,
+  },
+  // !new
+  tips: {
+    type: [String],
+    require: true,
+  },
   cloudinaryId: {
     type: String,
     require: true,
   },
-  caption: {
-    type: String,
-    required: true,
-  },
+  // caption: {
+  //   type: String,
+  //   required: true,
+  // },
   likes: {
     type: Number,
     required: true,

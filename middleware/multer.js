@@ -1,6 +1,7 @@
 const multer = require("multer");
 const path = require("path");
 
+// !resolve files types http://expressjs.com/en/resources/middleware/multer.html 
 module.exports = multer({
   storage: multer.diskStorage({}),
   fileFilter: (req, file, cb) => {

@@ -24,6 +24,29 @@
         <%}%>
       </div>
     </div>
+    
+ <!-- !new -->
+    <div class="col-3 mt-5">
+      <h3>Ingredients:</h3>
+      <% for(var i=0; i<post.ingredients.length; i++) {%>
+      <%= post.ingredients[i] %>
+      <% } %>
+      
+      <h3>Directions:</h3>
+      <ol class="list-group list-group-numbered">
+        <% for(var i=0; i<post.directions.length; i++) {%>
+          <li class=""><<%= post.directions[i] %>></li>
+        <% } %>
+      </ol>
+      
+      <h3>Baking Tips:</h3>
+        <% for(var i=0; i<post.tips.length; i++) {%>
+        <%= post.tips[i] %>
+        <% } %>
+    </div>
+
+
+
     <div class="col-3 mt-5">
       <p><%= post.caption %></p>
     </div>
@@ -59,6 +82,7 @@
       <a class="btn btn-primary" href="/profile">Return to Profile</a>
       <a class="btn btn-primary" href="/feed">Return to Feed</a>
     </div>
+  
   </div>
 </div>
 
