@@ -11,6 +11,15 @@ module.exports = {
       console.log(err);
     }
   },
+// !new
+  getRecipes: async (req, res) => {
+    try {
+      const posts = await Post.find({ user: req.user.id });
+      res.render("myrecipes.ejs", { posts: posts, user: req.user });
+    } catch (err) {
+      console.log(err);
+    }
+  },
   getFeed: async (req, res) => {
     try {
       const posts = await Post.find().sort({ createdAt: "desc" }).lean();
@@ -38,10 +47,16 @@ module.exports = {
         image: result.secure_url,
         cloudinaryId: result.public_id,
         caption: req.body.caption,
+        // !new
+        bread: req.body.bread,
+        ingredients: req.body.ingredients.trim().split('/n'),
+        directions: req.body.directions.trim().split('/n'),
+        tips: req.body.tips.trim().split('/n'),
         likes: 0,
         user: req.user.id,
       });
-      console.log("Post has been added!");
+      console.log("Your recipe has been added!");
+      // change this to feed or my-recipes
       res.redirect("/profile");
     } catch (err) {
       console.log(err);
