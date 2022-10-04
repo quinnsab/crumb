@@ -2,9 +2,9 @@
 <div class="container">
   <div class="row justify-content-center mt-5">
     <div class="col-6">
-      <h2><%= post.title %></h2>
-      <img class="img-fluid" src="<%= post.image%>" />
-      <div class="row justify-content-between">
+      <h2 class="display-6 border-bottom p-3"><%= post.title %></h2>
+      <img class="img-fluid shadow-lg" src="<%= post.image%>" />
+      <div class="row justify-content-between p-3">
         <form
           class="col-1"
           action="/post/likePost/<%= post.id %>?_method=PUT"
@@ -27,19 +27,19 @@
     
  <!-- !new -->
     <div class="col-3 mt-5">
-      <h3>Ingredients:</h3>
+      <h3 class="display-6 border-bottom">Ingredients</h3>
       <% for(var i=0; i<post.ingredients.length; i++) {%>
       <%= post.ingredients[i] %>
       <% } %>
       
-      <h3>Directions:</h3>
+      <h3 class="display-6 border-bottom">Preparation</h3>
       <ol class="list-group list-group-numbered">
         <% for(var i=0; i<post.directions.length; i++) {%>
-          <li class=""><<%= post.directions[i] %>></li>
+          <li class=""><%= post.directions[i] %>></li>
         <% } %>
       </ol>
       
-      <h3>Baking Tips:</h3>
+      <h3 class="display-6 border-bottom">Baking Tips</h3>
         <% for(var i=0; i<post.tips.length; i++) {%>
         <%= post.tips[i] %>
         <% } %>
@@ -51,13 +51,13 @@
       <p><%= post.caption %></p>
     </div>
     <div class="mt-5">
-      <h2>Add a comment</h2>
+      <h2 class="display-6 border-bottom">Add a comment</h2>
       <form action="/comment/createComment/<%=post._id%>" method="POST">
         <div class="mb-3">
             <label for="comment" class="form-label">Comment</label>
             <input type="text" class="form-control" id="comment" name="comment">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-secondary">Submit</button>
       </form>
     </div>
     <ul>
@@ -79,8 +79,8 @@
       <% } %>
     </ul>
     <div class="col-6 mt-5">
-      <a class="btn btn-primary" href="/profile">Return to Profile</a>
-      <a class="btn btn-primary" href="/feed">Return to Feed</a>
+      <a class="btn btn-secondary" href="/profile">Return to Profile</a>
+      <a class="btn btn-secondary" href="/feed">Return to Feed</a>
     </div>
   
   </div>
